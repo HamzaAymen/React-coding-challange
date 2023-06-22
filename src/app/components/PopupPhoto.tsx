@@ -1,19 +1,18 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { Photo } from "../../../types";
 
-const PopupPhoto = ({
-  componentProps,
-  setShowPopUp,
-}: {
+type PopupPhotoProps = {
   componentProps: Photo | null;
   setShowPopUp: Dispatch<SetStateAction<boolean>>;
-}) => {
+};
+
+const PopupPhoto = ({ componentProps, setShowPopUp }: PopupPhotoProps) => {
   return (
     <div className="w-full h-full flex justify-center items-center fixed left-0 top-0">
       <div className="bg-white w-1/2 py-2 flex justify-center items-center flex-col relative">
-        <div className="w-1/2 my-5">
+        <div className="w-1/2 min-h-[50%] my-5">
           <img
-            src={componentProps?.urls.full}
+            src={componentProps?.urls.regular}
             alt={componentProps?.alt_description}
             className="w-full h-full object-contain"
           />

@@ -1,17 +1,14 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { Photo } from "../../../types";
 
+type PhotoComponentProps = {
+  photo: Photo;
+  setComponentProps: Dispatch<SetStateAction<null | Photo>>;
+  setShowPopUp: Dispatch<SetStateAction<boolean>>;
+};
 const PhotoComponent = React.forwardRef(
   (
-    {
-      photo,
-      setComponentProps,
-      setShowPopUp,
-    }: {
-      photo: Photo;
-      setComponentProps: Dispatch<SetStateAction<null | Photo>>;
-      setShowPopUp: Dispatch<SetStateAction<boolean>>;
-    },
+    { photo, setComponentProps, setShowPopUp }: PhotoComponentProps,
     ref: any
   ) => {
     if (ref) {
@@ -29,6 +26,7 @@ const PhotoComponent = React.forwardRef(
             src={photo.urls.small_s3}
             alt={photo.alt_description}
             className="object-contain"
+            loading="lazy"
           />
         </div>
       );
@@ -46,6 +44,7 @@ const PhotoComponent = React.forwardRef(
             src={photo.urls.small_s3}
             alt={photo.alt_description}
             className="object-contain"
+            loading="lazy"
           />
         </div>
       );
