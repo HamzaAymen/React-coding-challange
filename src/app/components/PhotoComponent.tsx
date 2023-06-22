@@ -11,6 +11,7 @@ const PhotoComponent = React.forwardRef(
     { photo, setComponentProps, setShowPopUp }: PhotoComponentProps,
     ref: any
   ) => {
+    // If we got ref, attack it to the div
     if (ref) {
       return (
         <div
@@ -30,7 +31,9 @@ const PhotoComponent = React.forwardRef(
           />
         </div>
       );
-    } else {
+    }
+    // if we dont get ref return div without ref
+    else {
       return (
         <div
           key={photo.id}
@@ -51,5 +54,7 @@ const PhotoComponent = React.forwardRef(
     }
   }
 );
+
+PhotoComponent.displayName = "PhotoComponent";
 
 export default PhotoComponent;
